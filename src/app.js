@@ -7,6 +7,8 @@ const forecast = require('./utils/forecast')
 //console.log(__dirname)
 
 const app = express()
+//access environment variable set by Heroku
+const port = process.env.PORT || 3000
 
 // define paths for Express config
 const publicDirectoryPath = path.join(__dirname,'..','public')
@@ -88,6 +90,6 @@ app.get('*',(req,res) => {
     })
 })
 
-app.listen(3000,() => {
-    console.log('express listening on port 3000')
+app.listen(port,() => {
+    console.log('express listening on port '+port)
 })
